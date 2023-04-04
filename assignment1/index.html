@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    fibonacci
+  </body>
+  <script>
+    // Iteration method
+    function fibs(num) {
+      const result = [];
+
+      if (num >= 1) {
+        result.push(0);
+      }
+
+      if (num >= 2) {
+        result.push(1);
+      }
+
+      for (let i = 2; i < num; i++) {
+        const prev = result[i - 1];
+        const prevPrev = result[i - 2];
+        result.push(prev + prevPrev);
+      }
+
+      return result;
+    }
+    console.log(fibs(8));
+
+    // Recursively
+    function fibsRec(num) {
+      if (num === 0) {
+        return [];
+      }
+
+      if (num === 1) {
+        return [0];
+      }
+
+      if (num === 2) {
+        return [0, 1];
+      }
+
+      const result = fibsRec(num - 1);
+      const prev = result[num - 2];
+      const prevPrev = result[num - 3];
+      result.push(prev + prevPrev);
+
+      return result;
+    }
+    console.log(fibsRec(8));
+  </script>
+</html>
